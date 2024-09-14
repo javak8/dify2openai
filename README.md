@@ -37,7 +37,7 @@ chatbot:blocking
 ![1726218901113.jpg](doc%2F1726218901113.jpg)
 ![请求体](doc/img_1.png)
 ![接口返回](doc/img_2.png)
-content是list,元素有可能是多个图片链接，过个内容。使用时注意下。
+content是list,元素有可能是多个图片链接，多个内容。使用时注意下。
 
 ##  效果
 ### dify of wechat
