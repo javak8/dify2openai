@@ -112,7 +112,6 @@ def handle_chatbot(api_key, query ,conversation_id, user, model):
         "id": f"chatcmpl-{int(time.time())}",
         "object": "chat.completion",
         "created": int(time.time()),
-        "conversation_id":session.get('conversation_id'),
         "model": model,
         "choices": [{
             "index": 0,
@@ -163,47 +162,3 @@ def download_image(self, url):
     except Exception as e:
         logger.error(f"Error downloading {url}: {e}")
     return None
-
-# def _get_upload_files(api_key, session: DifySession):
-#     session_id = session.get_session_id()
-#     img_cache = USER_IMAGE_CACHE.get(session_id)
-#     if not img_cache or not app.config.get("IMG_REGNITION"):
-#         return None
-#     api_base = app.config.get('API_BASE', '')
-#     dify_client = DifyClient(api_key, api_base)
-#     msg = img_cache.get("msg")
-#     path = img_cache.get("path")
-#     msg.prepare()
-#     with open(path, 'rb') as file:
-#         file_name = os.path.basename(path)
-#         file_type, _ = mimetypes.guess_type(file_name)
-#         files = {
-#             'file': (file_name, file, file_type)
-#         }
-#         response = dify_client.file_upload(user=session.get_user(), files=files)
-#         response.raise_for_status()
-#
-#         if response.status_code != 200 and response.status_code != 201:
-#             error_info = f"[DIFY] response text={response.text} status_code={response.status_code} when upload file"
-#             logger.warn(error_info)
-#             return None, error_info
-#     # 清理图片缓存
-#     USER_IMAGE_CACHE[session_id] = None
-#     # {
-#     #     'id': 'f508165a-10dc-4256-a7be-480301e630e6',
-#     #     'name': '0.png',
-#     #     'size': 17023,
-#     #     'extension': 'png',
-#     #     'mime_type': 'image/png',
-#     #     'created_by': '0d501495-cfd4-4dd4-a78b-a15ed4ed77d1',
-#     #     'created_at': 1722781568
-#     # }
-#     file_upload_data = response.json()
-#     logger.debug("[DIFY] upload file {}".format(file_upload_data))
-#     return [
-#         {
-#             "type": "image",
-#             "transfer_method": "local_file",
-#             "upload_file_id": file_upload_data['id']
-#         }
-#     ]
