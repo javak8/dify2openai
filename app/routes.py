@@ -23,10 +23,10 @@ def index():
     return '''
         <html>
             <head>
-                <title>Coze2OpenAI</title>
+                <title>Dify2OpenAI</title>
             </head>
             <body>
-                <h1>Coze2OpenAI</h1>
+                <h1>Dify2OpenAI</h1>
                 <p>DONE.</p>
             </body>
         </html>
