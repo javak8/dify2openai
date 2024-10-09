@@ -53,4 +53,9 @@ docker build -t dify2openai:latest .
 docker run --name dify2openai --restart=always -d -p 3000:3000 -e API_BASE={{API_BASE}}  dify2openai:latest
 ```
 
+# 广告
+最小化开发成本（近免费）可落地AI项目：本项目文档讲述利用头条，微头条/文章的AI自动生成的方式赚取收益
+学习到python技术，服务器部署，国内模型有效利用，AI应用开发，AI应用平台使用，行业热门工具，系统架构集成
+价值：启发，启蒙，编程，超级个体
+https://icnyfaw3mn0d.feishu.cn/wiki/EahJwFXmji6RY0k4QAbcPodRnoc?from=from_copylink
 
